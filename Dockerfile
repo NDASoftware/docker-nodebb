@@ -11,6 +11,9 @@ RUN mkdir -p /usr/src/app
 RUN mkdir -p /data
 WORKDIR /usr/src/app
 
+RUN apt update
+RUN apt install -y sendmail
+
 
 RUN wget https://github.com/NodeBB/NodeBB/archive/${RELEASE}.tar.gz -O nodebb.tar.gz \
     && tar xzf nodebb.tar.gz --strip-components 1 \
