@@ -14,12 +14,14 @@ WORKDIR /usr/src/app
 RUN apt update
 RUN apt install -y sendmail
 
-
 RUN wget https://github.com/NodeBB/NodeBB/archive/${RELEASE}.tar.gz -O nodebb.tar.gz \
     && tar xzf nodebb.tar.gz --strip-components 1 \
     && rm nodebb.tar.gz \
-    && cp install/package.json package.json \
-    && npm install --only=prod \
+    && cp install/package.json package.json
+
+RUN npm install nodebb-plugin-markdown
+
+RUN npm install --only=prod \
     && npm cache clean --force
 
 VOLUME /data
