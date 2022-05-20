@@ -21,23 +21,10 @@ jobs:
         env:
           RELEASE: ${{ steps.NodeBB-beta.outputs.release }}
         with:
-         name: rez0n/nodebb
+         name: ${{ secrets.GH_USERNAME }}/nodebb
          registry: ghcr.io
-         username: "rez0n"
+         username: ${{ secrets.GH_USERNAME }}
          password: ${{ secrets.PAT }}
-         dockerfile: Dockerfile
-         buildargs: RELEASE
-         tags: beta, ${{ steps.NodeBB-beta.outputs.release }}
-
-      - name: Build and publish on DockerHub (beta)
-        uses: elgohr/Publish-Docker-Github-Action@master
-        env:
-          RELEASE: ${{ steps.NodeBB-beta.outputs.release }}
-        with:
-         name: nibrev/nodebb
-         registry: registry.hub.docker.com
-         username: "nibrev"
-         password: ${{ secrets.DOCKERHUB_TOKEN }}
          dockerfile: Dockerfile
          buildargs: RELEASE
          tags: beta, ${{ steps.NodeBB-beta.outputs.release }}
@@ -60,23 +47,10 @@ jobs:
         env:
           RELEASE: ${{ steps.NodeBB-stable.outputs.release }}
         with:
-         name: rez0n/nodebb
+         name: ${{ secrets.GH_USERNAME }}/nodebb
          registry: ghcr.io
-         username: "rez0n"
+         username: ${{ secrets.GH_USERNAME }}
          password: ${{ secrets.PAT }}
-         dockerfile: Dockerfile
-         buildargs: RELEASE
-         tags: latest, stable, ${{ steps.NodeBB-stable.outputs.release }}
-
-      - name: Build and publish on DockerHub (stable)
-        uses: elgohr/Publish-Docker-Github-Action@master
-        env:
-          RELEASE: ${{ steps.NodeBB-stable.outputs.release }}
-        with:
-         name: nibrev/nodebb
-         registry: registry.hub.docker.com
-         username: "nibrev"
-         password: ${{ secrets.DOCKERHUB_TOKEN }}
          dockerfile: Dockerfile
          buildargs: RELEASE
          tags: latest, stable, ${{ steps.NodeBB-stable.outputs.release }}

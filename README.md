@@ -8,7 +8,7 @@
 ##### Beta releases
 `beta`, `v1.15.1-beta.0`, `v1.15.0-rc.4`, `v1.15.0-rc.3`, `v1.15.0-beta.30` ...
 
-*Images delivers through two registries, [DockerHub](https://hub.docker.com/r/nibrev/nodebb) and [GitHub Container Registry](https://github.com/users/rez0n/packages/container/package/nodebb).*
+*Images delivers through [GitHub Container Registry](https://github.com/users/rez0n/packages/container/package/nodebb).*
 
 ## Features
 * Auto installation
