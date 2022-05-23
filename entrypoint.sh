@@ -33,12 +33,14 @@ else
     && ln -s /data/uploads /usr/src/app/public/uploads
 fi
 
-if [ ! -e /data/package.json ]; then
-    mv /usr/src/app/package.json /data/package.json \
-    && ln -s /data/package.json /usr/src/app/package.json
-else
-    rm /usr/src/app/package.json \
-    && ln -s /data/package.json /usr/src/app/package.json
+if [ "$SKIP_PERSIST_PACKAGE_JSON" != "false" ]; then
+    if [ ! -e /data/package.json ]; then
+        mv /usr/src/app/package.json /data/package.json \
+        && ln -s /data/package.json /usr/src/app/package.json
+    else
+        rm /usr/src/app/package.json \
+        && ln -s /data/package.json /usr/src/app/package.json
+    fi
 fi
 
 if [ -e /data/plugins ]; then
