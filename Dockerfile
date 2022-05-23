@@ -20,6 +20,7 @@ RUN wget https://github.com/NodeBB/NodeBB/archive/${RELEASE}.tar.gz -O nodebb.ta
     && cp install/package.json package.json
 
 RUN npm install nodebb-plugin-markdown
+RUN npm install nodebb-plugin-extended-markdown
 
 RUN npm install --only=prod \
     && npm cache clean --force
